@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud-free | Community Fraud Detection & Reporting</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="logo-container">
+            <i class="fa-solid fa-shield-halved logo-icon"></i>
+            <span class="logo-text">Fraud<span>Free</span></span>
+        </div>
+        <nav class="navbar">
+            <a href="#analyzer" class="nav-link active">Fraud Analyzer</a>
+            <a href="#report" class="nav-link">Report Scam</a>
+            <a href="#alerts" class="nav-link">Community Alerts</a>
+            <a href="#education" class="nav-link">Safety Center</a>
+        </nav>
+        <div class="header-status">
+            <span class="status-badge"><i class="fa-solid fa-circle"></i> System Active</span>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-container">
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1>Protecting Our Community From Fraud</h1>
+            <p>Analyze suspicious messages, report fraudulent activities instantly, and stay updated with real-time community alerts.</p>
+        </section>
+
+        <!-- Section 1: Fraud Analyzer (AI Text/URL/Phone Checker) -->
+        <section id="analyzer" class="content-section">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-magnifying-glass-chart"></i> Suspicious Content Analyzer</h2>
+                <p>Paste a text message, email, phone number, or URL below to evaluate its risk level instantly.</p>
+            </div>
+            
+            <div class="analyzer-box">
+                <div class="input-group">
+                    <textarea id="analyzerInput" placeholder="Paste suspicious SMS, email body, URL, or enter phone number here..."></textarea>
+                </div>
+                <div class="analyzer-actions">
+                    <button id="analyzeBtn" class="btn-primary">
+                        <i class="fa-solid fa-stethoscope"></i> Analyze Content
+                    </button>
+                    <button id="clearAnalyzerBtn" class="btn-secondary">Clear</button>
+                </div>
+
+                <!-- Analysis Results Panel (Hidden by default) -->
+                <div id="analyzerResult" class="result-panel hidden">
+                    <div class="result-header">
+                        <span id="riskBadge" class="risk-badge">Risk: Low</span>
+                        <span id="threatScore">Threat Score: 0/100</span>
+                    </div>
+                    <div class="result-body">
+                        <h4>Analysis Summary:</h4>
+                        <p id="resultSummary">No threats detected.</p>
+                        <h4>Key Indicators Found:</h4>
+                        <ul id="indicatorList">
+                            <li>None</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Report Fraud Portal -->
+        <section id="report" class="content-section">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-triangle-exclamation"></i> Report a Scam or Fraud</h2>
+                <p>Help protect your neighbors by reporting scam attempts anonymously or officially.</p>
+            </div>
+
+            <form id="fraudReportForm" class="report-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="scamType">Fraud Category</label>
+                        <select id="scamType" required>
+                            <option value="">Select Category...</option>
+                            <option value="Mobile Money Scam">Mobile Money / Financial Scam</option>
+                            <option value="Phishing Link">Phishing / Fake Website</option>
+                            <option value="Fake Job Offer">Fake Job / Recruitment Scam</option>
+                            <option value="Online Marketplace">E-Commerce / Marketplace Fraud</option>
+                            <option value="Identity Theft">Identity Theft</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="scammerContact">Scammer Contact / Handle / URL</label>
+                        <input type="text" id="scammerContact" placeholder="e.g., +260..., suspicious-link.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="scamDescription">Incident Description</label>
+                    <textarea id="scamDescription" rows="4" placeholder="Describe how the scam was attempted or carried out..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">
+                    <i class="fa-solid fa-paper-plane"></i> Submit Community Report
+                </button>
+            </form>
+        </section>
+
+        <!-- Section 3: Community Alerts Feed -->
+        <section id="alerts" class="content-section">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-bell"></i> Live Community Alert Feed</h2>
+                <p>Recent fraudulent numbers, links, and tactics reported by community members.</p>
+            </div>
+
+            <div class="alert-controls">
+                <input type="text" id="searchAlerts" placeholder="Search alerts by keyword, number, or category...">
+            </div>
+
+            <div id="alertsContainer" class="alerts-grid">
+                <!-- Dynamic alerts populated via JS -->
+            </div>
+        </section>
+
+        <!-- Section 4: Safety Education Center -->
+        <section id="education" class="content-section">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-graduation-cap"></i> Community Safety & Prevention Tips</h2>
+                <p>Learn how to identify common social engineering tactics and stay secure online.</p>
+            </div>
+
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <i class="fa-solid fa-key tip-icon"></i>
+                    <h3>Never Share Passwords or PINs</h3>
+                    <p>Legitimate financial institutions or service providers will never ask for your secret PIN, passwords, or full account credentials over phone or SMS.</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fa-solid fa-link tip-icon"></i>
+                    <h3>Inspect Links Carefully</h3>
+                    <p>Always double-check URL spellings. Fraudsters often use look-alike domains (e.g., `amaz0n.com` instead of `amazon.com`) to steal login details.</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fa-solid fa-clock tip-icon"></i>
+                    <h3>Beware of False Urgency</h3>
+                    <p>Scammers create fake emergencies ("Your account will be blocked in 1 hour!") to pressure you into acting before thinking.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 SecureGuard Community Fraud Detection Initiative. Designed for safer communities.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
